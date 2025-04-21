@@ -2,11 +2,33 @@ import Services from "../data/services";
 import React from "react";
 import { useState } from "react";
 import '../components/servicesComponent.css';
-
+import WebDesignComponent from "./webDesigncomponent";
 
 const ServicesComponent = () => {
-        
-const [totalBudget, setTotalBudget] = useState(0)
+
+    const [checkedState, setCheckedState] = useState(
+        new Array(Services.length).fill(false)
+    );
+
+    const [totalBudget, setTotalBudget] = useState(0)
+
+    const handleOnChange = (position: number) => {
+        const updatedCheckedState = checkedState.map((item, index) =>
+        index === position ? !item : item
+        );
+    
+        setCheckedState(updatedCheckedState)
+    
+        const totalPrice = updatedCheckedState.reduce(
+        (sum, currentState, index) => {
+            if (currentState === true) {
+            return sum + (Services[index]?.price);
+            }
+            return sum;
+        },0);
+    
+        setTotalBudget(totalPrice);
+    };
     
     return (
         <div>
@@ -14,7 +36,7 @@ const [totalBudget, setTotalBudget] = useState(0)
             <div>
                 {Services.map((service, index) => (
                     service && (
-                        <div key={index} className="services">
+                        <div className="services" key={index}>
                             <div>
                                 <h3>{service.name}</h3>
                                 <p>{service.description}</p>
@@ -23,8 +45,15 @@ const [totalBudget, setTotalBudget] = useState(0)
                                 <h2>{service.price} €</h2>
                             </div>
                             <div>
-                                <input type="checkbox" 
-                                    onClick={() => setTotalBudget((totalBudget) => totalBudget + service.price )}/> Add to Cart
+                                <input 
+                                    type="checkbox" 
+                                    name={service.name}
+                                    id={index.toString()}
+                                    checked={checkedState[index]}
+                                    onChange={() => handleOnChange(index)}
+                                    
+                                /> Add to Cart
+                                <WebDesignComponent/>
                             </div>
                             
                         </div>
