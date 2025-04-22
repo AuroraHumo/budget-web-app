@@ -11,6 +11,7 @@ const ServicesComponent = () => {
     );
 
     const [totalBudget, setTotalBudget] = useState(0)
+    const [webBudget, setWebBudget] = useState(0);
 
     const handleOnChange = (position: number) => {
         const updatedCheckedState = checkedState.map((item, index) =>
@@ -22,13 +23,19 @@ const ServicesComponent = () => {
         const totalPrice = updatedCheckedState.reduce(
         (sum, currentState, index) => {
             if (currentState === true) {
+
             return sum + (Services[index]?.price);
             }
             return sum;
         },0);
-    
         setTotalBudget(totalPrice);
     };
+
+    const handleWebBudgetChange = (budget) => {
+        setWebBudget(budget);
+    }
+
+    
     
     return (
         <div>
@@ -36,7 +43,8 @@ const ServicesComponent = () => {
             <div>
                 {Services.map((service, index) => (
                     service && (
-                        <div className="services" key={index}>
+                        <div key={index}>
+                        <div className="services" >
                             <div>
                                 <h3>{service.name}</h3>
                                 <p>{service.description}</p>
@@ -53,13 +61,19 @@ const ServicesComponent = () => {
                                     onChange={() => handleOnChange(index)}
                                     
                                 /> Add to Cart
-                                <WebDesignComponent/>
+                                
                             </div>
                             
                         </div>
+                        <div className="services-details" >
+                            
+                            {checkedState[index] && index == 3 ? (<WebDesignComponent onWebBudgetChange={handleWebBudgetChange}  />) : null}
+                            
+                        </div>
+                    </div>
                     )
                 ))}
-                <h2 className="totalBudget">Total budget: {totalBudget} €</h2>
+                <h2 className="totalBudget">Total budget: {totalBudget + webBudget} €</h2>
             </div>
         </div>
     )
