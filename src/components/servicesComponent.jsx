@@ -1,6 +1,7 @@
 import Services from "../data/services";
 import React from "react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import '../components/servicesComponent.css';
 import WebDesignComponent from "./webDesignComponent";
 
@@ -34,6 +35,11 @@ const ServicesComponent = () => {
     const handleWebBudgetChange = (budget) => {
         setWebBudget(budget);
     }
+
+    const navigate = useNavigate();
+    const handleClick = () => {
+        navigate('/');
+    };
 
     return (
         <div>
@@ -71,6 +77,7 @@ const ServicesComponent = () => {
                             
                         </div>
                         <h2 className="totalBudget">Total budget: {totalBudget + webBudget} €</h2>
+                        <button onClick={handleClick}>Back to home</button>
                     </div>
 
     )
