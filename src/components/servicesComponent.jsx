@@ -61,19 +61,18 @@ const ServicesComponent = () => {
                                 /> Add to Cart
                                 
                             </div>
-                            
+                            </div>
+        </div>
+                            )))}
                         </div>
                         <div className="services-details" >
                             
-                            {checkedState[index] && index == 3 ? (<WebDesignComponent onWebBudgetChange={handleWebBudgetChange}  />) : null}
+                            {checkedState[2] && (<WebDesignComponent onWebBudgetChange={handleWebBudgetChange}  />) }
                             
                         </div>
+                        <h2 className="totalBudget">Total budget: {totalBudget + webBudget} €</h2>
                     </div>
-                    )
-                ))}
-                <h2 className="totalBudget">Total budget: {totalBudget + webBudget} €</h2>
-            </div>
-        </div>
+
     )
 }
 

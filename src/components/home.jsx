@@ -1,8 +1,11 @@
 import React from 'react';
+import { useNavigate } from 'react-router';
 
 const Home = () => {
+
+    const navigate = useNavigate();
     const handleClick = () => {
-        alert('Under construction!');
+        navigate('/budget');
     };
 
     return (

@@ -14,6 +14,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/budget" element={<ServicesComponent />} />
+        <Route path="*" element={<h1>404 Not Found</h1>} />
 
       </Routes>
     </BrowserRouter>

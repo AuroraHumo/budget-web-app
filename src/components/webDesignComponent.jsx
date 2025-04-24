@@ -5,11 +5,10 @@ const WebDesignComponent = ({onWebBudgetChange}) => {
     const [inputValuePages, setInputValuePages] = useState(1);
     const [inputValueLanguages, setInputValueLanguages] = useState(1);
 
-
     useEffect (() => {
         const budget = (inputValuePages + inputValueLanguages) * 30;
         onWebBudgetChange(budget);
-    }, [inputValuePages, inputValueLanguages]);
+    }, [inputValuePages, inputValueLanguages, onWebBudgetChange]);
 
     return (
         <div>
