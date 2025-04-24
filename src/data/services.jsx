@@ -1,4 +1,4 @@
-const Services = [ ,
+const Services = [ 
   {
     name: 'UI/UX Design',
     description: 'Design an intuitive and engaging user interface.',

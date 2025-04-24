@@ -2,7 +2,7 @@ import Services from "../data/services";
 import React from "react";
 import { useState } from "react";
 import '../components/servicesComponent.css';
-import WebDesignComponent from "./webDesigncomponent";
+import WebDesignComponent from "./webDesignComponent";
 
 const ServicesComponent = () => {
 
@@ -11,9 +11,9 @@ const ServicesComponent = () => {
     );
 
     const [totalBudget, setTotalBudget] = useState(0)
-    const [webBudget, setWebBudget] = useState(0);
+    const [webBudget, setWebBudget] = useState(0)
 
-    const handleOnChange = (position: number) => {
+    const handleOnChange = (position) => {
         const updatedCheckedState = checkedState.map((item, index) =>
         index === position ? !item : item
         );
@@ -35,8 +35,6 @@ const ServicesComponent = () => {
         setWebBudget(budget);
     }
 
-    
-    
     return (
         <div>
             <h2>Services</h2>

@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 
-const webDesignComponent = ({onWebBudgetChange}) => {
+const WebDesignComponent = ({onWebBudgetChange}) => {
     const [inputValuePages, setInputValuePages] = useState(1);
     const [inputValueLanguages, setInputValueLanguages] = useState(1);
 
@@ -41,4 +41,4 @@ const webDesignComponent = ({onWebBudgetChange}) => {
     );
     }
 
-export default webDesignComponent;
+export default WebDesignComponent;
