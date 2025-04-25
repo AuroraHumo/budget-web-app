@@ -1,22 +1,17 @@
-import React from 'react';
-import { useNavigate } from 'react-router';
+import React from "react";
+/* import { useState, useEffect } from "react"; */
+
+import ServicesComponent from "./servicesComponent";
+import BudgetListComponent from "./budgetListcomponent";
 
 const Home = () => {
-
-    const navigate = useNavigate();
-    const handleClick = () => {
-        navigate('/budget');
-    };
-
     return (
-        <div>
-
-            <h2>UI/UX Design</h2>
-            <h2>Mobile App Development</h2>
-            <h2>Web Development</h2>
-            <button onClick={handleClick}>Check our prices!</button>
-        </div>
-    );
-};
+        <>
+        <ServicesComponent />
+        {/* <BudgetListComponent /> */}
+        </>
+        
+    )
+}
 
 export default Home;

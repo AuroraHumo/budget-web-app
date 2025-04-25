@@ -30,7 +30,7 @@ const ServicesComponent = () => {
             }
             return sum;
         },0);
-        
+
         setTotalBudget(totalPrice);
     };
 
@@ -45,7 +45,7 @@ const ServicesComponent = () => {
 
     return (
         <div>
-            <h2>Services</h2>
+            
             <div>
                 {Services.map((service, index) => (
                     service && (

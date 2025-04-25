@@ -1,9 +1,9 @@
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Home from './components/home'
-import  Header  from './components/header'
-import ServicesComponent from './components/servicesComponent'
+import Intro from './components/intro'
+import Home from "./components/home";
+import Header from './components/header'
 import './App.css'
 
 export default function App() {
@@ -12,8 +12,8 @@ export default function App() {
     <BrowserRouter>
       <Header />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/budget" element={<ServicesComponent />} />
+        <Route path="/" element={<Intro />} />
+        <Route path="/home" element={<Home />} />
         <Route path="*" element={<h1>404 Not Found</h1>} />
 
       </Routes>
