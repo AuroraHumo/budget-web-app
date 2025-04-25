@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import '../components/servicesComponent.css';
 import WebDesignComponent from "./webDesignComponent";
+import BudgetComponent from "./budgetComponent";
 
 const ServicesComponent = () => {
 
@@ -29,6 +30,7 @@ const ServicesComponent = () => {
             }
             return sum;
         },0);
+        
         setTotalBudget(totalPrice);
     };
 
@@ -77,6 +79,9 @@ const ServicesComponent = () => {
                             
                         </div>
                         <h2 className="totalBudget">Total budget: {totalBudget + webBudget} €</h2>
+                        <div className="askQuote">
+                            {checkedState.some(checked => checked) && (<BudgetComponent onTotalBudgetChange={totalBudget + webBudget} />) }
+                        </div>
                         <button onClick={handleClick}>Back to home</button>
                     </div>
 
