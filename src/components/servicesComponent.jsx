@@ -14,6 +14,7 @@ const ServicesComponent = ({setBudgetList}) => {
 
     const [totalBudget, setTotalBudget] = useState(0)
     const [webBudget, setWebBudget] = useState(0)
+    const [selectedServices, setSelectedServices] = useState([])
 
     const handleOnChange = (position) => {
         const updatedCheckedState = checkedState.map((item, index) =>
@@ -21,7 +22,6 @@ const ServicesComponent = ({setBudgetList}) => {
         );
         setCheckedState(updatedCheckedState)
         
-        console.log(Services[position].name);
     
         const totalPrice = updatedCheckedState.reduce(
         (sum, currentState, index) => {
@@ -32,7 +32,15 @@ const ServicesComponent = ({setBudgetList}) => {
             return sum;
         },0);
 
+        const selectedServ = updatedCheckedState.reduce((acc, currentState, index) => {
+            if (currentState === true) {
+                acc.push(Services[index]?.name);
+            }
+            return acc;
+        }, []);
+
         setTotalBudget(totalPrice);
+        setSelectedServices(selectedServ);
     };
 
     const handleWebBudgetChange = (budget) => {
@@ -81,7 +89,7 @@ const ServicesComponent = ({setBudgetList}) => {
                         </div>
                         <h2 className="totalBudget">Total budget: {totalBudget + webBudget} €</h2>
                         <div className="askQuote">
-                            {checkedState.some(checked => checked) && (<BudgetComponent onTotalBudgetChange={totalBudget + webBudget} setBudgetList={setBudgetList}/>) }
+                            {checkedState.some(checked => checked) && (<BudgetComponent onTotalBudgetChange={totalBudget + webBudget} setBudgetList={setBudgetList} selectedServices={selectedServices}/>) }
                         </div>
                         <button onClick={handleClick}>Back to home</button>
                     </div>
