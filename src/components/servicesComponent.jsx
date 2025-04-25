@@ -6,7 +6,7 @@ import '../components/servicesComponent.css';
 import WebDesignComponent from "./webDesignComponent";
 import BudgetComponent from "./budgetComponent";
 
-const ServicesComponent = () => {
+const ServicesComponent = ({setBudgetList}) => {
 
     const [checkedState, setCheckedState] = useState(
         new Array(Services.length).fill(false)
@@ -19,8 +19,9 @@ const ServicesComponent = () => {
         const updatedCheckedState = checkedState.map((item, index) =>
         index === position ? !item : item
         );
-    
         setCheckedState(updatedCheckedState)
+        
+        console.log(Services[position].name);
     
         const totalPrice = updatedCheckedState.reduce(
         (sum, currentState, index) => {
@@ -80,7 +81,7 @@ const ServicesComponent = () => {
                         </div>
                         <h2 className="totalBudget">Total budget: {totalBudget + webBudget} €</h2>
                         <div className="askQuote">
-                            {checkedState.some(checked => checked) && (<BudgetComponent onTotalBudgetChange={totalBudget + webBudget} />) }
+                            {checkedState.some(checked => checked) && (<BudgetComponent onTotalBudgetChange={totalBudget + webBudget} setBudgetList={setBudgetList}/>) }
                         </div>
                         <button onClick={handleClick}>Back to home</button>
                     </div>

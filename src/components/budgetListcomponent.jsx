@@ -1,20 +1,27 @@
 import React from "react";
-import { useState, useEffect } from "react";
 
-const BudgetListComponent = ({ budgetList }) => {
-
-
+const BudgetListComponent = ({budgetList}) => {
+    
     return (
-        <>
-        <h2>Budget List</h2>
-        <ul>
+        <div >
+            <h2> Current Budgets</h2>
             {budgetList.map((budget, index) => (
-            <li key={index}>
-            {budget.name} - {budget.email} - {budget.totalBudget}€
-            </li>
+            <div key={index}>
+                <div className="services" >
+                            <div>
+                                <h3>{budget.name}</h3>
+                                <p>{budget.email}</p>
+                                <p>{budget.phone}</p>
+                            </div>
+                            <div>
+                                <div>{budget.services}</div>
+                            </div>
+                            <h2>{budget.totalBudget}€</h2>
+                            </div>
+            
+            </div>
             ))}
-        </ul>
-        </>
+        </div>
     )
 }
 
