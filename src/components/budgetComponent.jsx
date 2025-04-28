@@ -1,11 +1,10 @@
 import React from "react";
 import { useState } from "react";
 
-const Budgetcomponent = ({ onTotalBudgetChange, setBudgetList }) => {
+const Budgetcomponent = ({ onTotalBudgetChange, setBudgetList, selectedServices }) => {
     const [name, setName] = useState("");
     const [phone, setPhone] = useState("");
     const [email, setEmail] = useState("");
-
 
    function handleSubmit (e) {
         e.preventDefault();
@@ -14,7 +13,7 @@ const Budgetcomponent = ({ onTotalBudgetChange, setBudgetList }) => {
             phone: phone,
             email: email,
             totalBudget: onTotalBudgetChange,
-            services: 'services'
+            selectedServices: selectedServices
         };
         setBudgetList((prevBudgetList) => [...prevBudgetList, customerInfo]);
 
