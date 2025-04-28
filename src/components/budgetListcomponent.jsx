@@ -2,7 +2,7 @@ import React from "react";
 
 const BudgetListComponent = ({budgetList}) => {
     return (
-        <div >
+        <div>
             <h2> Current Budgets</h2>
             {budgetList.map((budget, index) => (
             <div key={index}>
