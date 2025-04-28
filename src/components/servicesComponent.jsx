@@ -29,7 +29,9 @@ const ServicesComponent = ({setBudgetList}) => {
 
             return sum + (Services[index]?.price);
             }
+            setWebBudget(0)
             return sum;
+            
         },0);
 
         const selectedServ = updatedCheckedState.reduce((acc, currentState, index) => {

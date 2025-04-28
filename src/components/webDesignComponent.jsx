@@ -6,7 +6,7 @@ const WebDesignComponent = ({onWebBudgetChange}) => {
     const [inputValueLanguages, setInputValueLanguages] = useState(1);
 
     useEffect (() => {
-        const budget = (inputValuePages + inputValueLanguages) * 20;
+        const budget = (inputValuePages + inputValueLanguages - 2 ) * 30;
         onWebBudgetChange(budget);
     }, [inputValuePages, inputValueLanguages, onWebBudgetChange]);
 
