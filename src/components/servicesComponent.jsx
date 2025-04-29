@@ -1,8 +1,7 @@
 import Services from "../data/services";
 import React from "react";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import '../components/servicesComponent.css';
+
 import WebDesignComponent from "./webDesignComponent";
 import BudgetComponent from "./budgetComponent";
 
@@ -49,54 +48,52 @@ const ServicesComponent = ({setBudgetList}) => {
         setWebBudget(budget);
     }
 
-    const navigate = useNavigate();
-    const handleClick = () => {
-        navigate('/');
-    };
-
     return (
-        <div>
-            
-            <div>
+        <div className=" max-w-5xl mx-auto p-6 rounded-2xl mt-8 space-y-6 bg-blue-50">
+            <div className="grid grid-cols-1 gap-4">
                 {Services.map((service, index) => (
                     service && (
-                        <div key={index}>
-                        <div className="services" >
-                            <div>
-                                <h3>{service.name}</h3>
-                                <p>{service.description}</p>
+                        <div key={index}   className="flex bg-white hover:bg-yellow-50 transition p-4 rounded-xl border border-gray-200 cursor-pointer">
+                            <div className="flex w-full items-center  mb-8" >
+                                <div className="flex-3/4 text-left">
+                                    <span className="  text-xl sixtyfour-convergence-font">{service.name}</span >
+                                    <p className="mt-3 font-bold">{service.description}</p>
+                                </div>
+                                <div className="flex flex-1/4 text-right">
+                                    <h2 className=" flex-2/3 text-right font-bold">{service.price} €</h2>
+
+                                    <label className="flex-1/3 text-center ">
+                                        <input 
+                                            type="checkbox" 
+                                            name={service.name}
+                                            id={index.toString()}
+                                            checked={checkedState[index]}
+                                            onChange={() => handleOnChange(index)}
+                                            className="accent-indigo-300 hover:scale-125 transition-transform cursor-pointer"
+                                            style={{ width: "20px", height: "20px"}}
+                                        /> 
+                                    </label>
+                                </div>
                             </div>
-                            <div>
-                                <h2>{service.price} €</h2>
-                            </div>
-                            <div>
-                                <input 
-                                    type="checkbox" 
-                                    name={service.name}
-                                    id={index.toString()}
-                                    checked={checkedState[index]}
-                                    onChange={() => handleOnChange(index)}
-                                    
-                                /> Add to Cart
-                                
-                            </div>
-                            </div>
-        </div>
+                        </div>
                             )))}
                         </div>
-                        <div className="services-details" >
-                            
+                        <div >
                             {checkedState[2] && (<WebDesignComponent onWebBudgetChange={handleWebBudgetChange}  />) }
                             
                         </div>
-                        <h2 className="totalBudget">Total budget: {totalBudget + webBudget} €</h2>
-                        <div className="askQuote">
+                        {checkedState.some(checked => checked) && (
+                            <div className="text-right mt-6">
+                                <h2 className="mb-4 text-right text-6xl font-honk ">Hey! Your total budget is : {totalBudget + webBudget} €</h2>
+                                <span></span><h3 className="text-right font-bold ">Please fill in your contact details to save your budget!</h3>
+                            </div>
+                        )}
+                        <div >
                             {checkedState.some(checked => checked) && (<BudgetComponent onTotalBudgetChange={totalBudget + webBudget} setBudgetList={setBudgetList} selectedServices={selectedServices}/>) }
                         </div>
-                        <button onClick={handleClick}>Back to home</button>
+                        
                     </div>
-
-    )
+    );
 }
 
 export default ServicesComponent;
