@@ -1,14 +1,17 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import Modal from "./modal";
 
 const WebDesignComponent = ({onWebBudgetChange}) => {
     const [inputValuePages, setInputValuePages] = useState(1);
     const [inputValueLanguages, setInputValueLanguages] = useState(1);
+    const [openModal, setOpenModal] = useState(false);
 
     useEffect (() => {
         const budget = (inputValuePages + inputValueLanguages - 2 ) * 30;
         onWebBudgetChange(budget);
     }, [inputValuePages, inputValueLanguages, onWebBudgetChange]);
+
 
     return (
         <div className="flex">
@@ -19,6 +22,9 @@ const WebDesignComponent = ({onWebBudgetChange}) => {
                     <div >
                         <p className="flex-3/4 text-right text-l sixtyfour-convergence-font"> How many pages? </p>
                         <p className="font-bold"> ( max 50 )</p>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6" onClick={() => setOpenModal(true)}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
+                        </svg>
                     </div>
                     <div className="flex-1/4 text-right">
                         <button className=" bg-gray-300
@@ -48,6 +54,9 @@ const WebDesignComponent = ({onWebBudgetChange}) => {
                     <div >
                         <p className="flex-3/4 text-right text-l sixtyfour-convergence-font"> How many Languages? </p>
                         <p className="font-bold"> ( max 10 )</p>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6" onClick={() => setOpenModal(true)}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z"/>
+                        </svg>
                     </div>
                     <div className="flex-1/4 text-right">
                         <button className=" bg-gray-300
@@ -72,36 +81,13 @@ const WebDesignComponent = ({onWebBudgetChange}) => {
                                 } }}> + </button>
                     </div>
                 </div>
-
-                {/* <div className="flex w-full items-center mb-8" >
-                    <div className="flex-3/4 text-right">
-                        <p> How many languages? ( max 10 ) </p>
-                    </div>
-                    <div className="flex-1/4 text-center">
-                    <button onClick={() => { 
-                        if (inputValueLanguages > 1) {
-                            setInputValueLanguages(inputValueLanguages - 1) 
-                        } }}> - </button>
-                    { inputValueLanguages }
-                    <button onClick={() => { 
-                        if (inputValueLanguages < 10) {
-                            setInputValueLanguages(inputValueLanguages + 1)
-                        } }}> + </button>
-                    </div>
-                </div> */}
-                {/* 
-                <p> How many languages? ( max 10 ) 
-                <button onClick={() => { 
-                        if (inputValueLanguages > 1) {
-                            setInputValueLanguages(inputValueLanguages - 1) 
-                        } }}> - </button>
-                    { inputValueLanguages }
-                    <button onClick={() => { 
-                        if (inputValueLanguages < 10) {
-                            setInputValueLanguages(inputValueLanguages + 1)
-                        } }}> + </button>
-                </p> */}
             </div>
+            <Modal open={openModal} onClose={() => setOpenModal(false)}>
+                <div>hola soc children del modal</div>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6" onClick={() => setOpenModal(true)}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" onClick={() => setOpenModal(true)}/>
+                        </svg>
+            </Modal>
         </div>
     );
     }
