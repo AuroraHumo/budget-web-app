@@ -112,7 +112,7 @@ const Budgetcomponent = ({ onTotalBudgetChange, setBudgetList, selectedServices 
         </div>
         <div className="flex-1/4"></div>
     </div>
-  );
+);
 };
 
 export default Budgetcomponent;
