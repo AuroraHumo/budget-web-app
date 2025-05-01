@@ -1,14 +1,20 @@
-export default function Modal({open, onClose, children}) {
+export default function Modal({open, onClose, id}) {
     return ( 
         //backdrop
         <div onClick={onClose}
-            className= {`fixed inset-0 justify-center items-center transition-colors bg-opacity-50 z-50 
-                ${open ? 'visible' : 'invisible'}`}>
+            className= {`fixed z-50 inset-0 justify-center items-center transition-colors backdrop-grayscale-100 flex
+                ${open ? 'visible bg-black-20'  : 'invisible'}`}>
             {/* modal */}
-            <div className={`bg-white rounded-xl shadow-lg p-6 transition-all
+            <div onClick={e => e.stopPropagation()} className={`bg-white rounded-xl shadow p-6 transition-all
                 ${open ? 'scale-100 opacity-100' : 'scale-125 opacity-0 '}`}>
-                    <div>'hola jo me muestro tambien'</div>
-                    {children}
+
+                    <div className="flex w-full items-center mb-8" >
+                    <div >
+                        <p className="font-bold">That's the amount of {id === 1 && 'pages'}{ id=== 2 && 'languages'} you want your website to have.</p>
+                        <p className="flex-3/4 text-right mt-8 text-l sixtyfour-convergence-font">  ONLY 30€ PER EXTRA {id === 1 && 'PAGE!'}{ id=== 2 && 'LENGUAGE!'} </p>
+                    </div>
+                    
+                </div>
             </div>
             
         </div>

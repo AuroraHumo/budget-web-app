@@ -6,6 +6,7 @@ const WebDesignComponent = ({onWebBudgetChange}) => {
     const [inputValuePages, setInputValuePages] = useState(1);
     const [inputValueLanguages, setInputValueLanguages] = useState(1);
     const [openModal, setOpenModal] = useState(false);
+    const [id, setId] = useState(null);
 
     useEffect (() => {
         const budget = (inputValuePages + inputValueLanguages - 2 ) * 30;
@@ -22,7 +23,7 @@ const WebDesignComponent = ({onWebBudgetChange}) => {
                     <div >
                         <p className="flex-3/4 text-right text-l sixtyfour-convergence-font"> How many pages? </p>
                         <p className="font-bold"> ( max 50 )</p>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6" onClick={() => setOpenModal(true)}>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6" onClick={() => {setOpenModal(true), setId(1)}}>
                             <path strokeLinecap="round" strokeLinejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
                         </svg>
                     </div>
@@ -54,7 +55,7 @@ const WebDesignComponent = ({onWebBudgetChange}) => {
                     <div >
                         <p className="flex-3/4 text-right text-l sixtyfour-convergence-font"> How many Languages? </p>
                         <p className="font-bold"> ( max 10 )</p>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6" onClick={() => setOpenModal(true)}>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6" onClick={() => {setOpenModal(true), setId(2)}}>
                             <path strokeLinecap="round" strokeLinejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z"/>
                         </svg>
                     </div>
@@ -82,12 +83,7 @@ const WebDesignComponent = ({onWebBudgetChange}) => {
                     </div>
                 </div>
             </div>
-            <Modal open={openModal} onClose={() => setOpenModal(false)}>
-                <div>hola soc children del modal</div>
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6" onClick={() => setOpenModal(true)}>
-                            <path strokeLinecap="round" strokeLinejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" onClick={() => setOpenModal(true)}/>
-                        </svg>
-            </Modal>
+            <Modal open={openModal} onClose={() => setOpenModal(false)} id={id}></Modal>
         </div>
     );
     }
