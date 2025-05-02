@@ -3,22 +3,25 @@ import React, { useState, useEffect } from "react";
 const BudgetListComponent = ({budgetList}) => {
 
     const [sortedList, setSortedList] = useState([]);
+    const [originalList, setOriginalList] = useState([]);
     useEffect(() => {
         setSortedList([...budgetList]);
       }, [budgetList]);
 
     
     function budgetListSortDate() {
-        console.log(budgetList)
         const sorted = [...sortedList].sort((a, b) => new Date(b.date) - new Date(a.date));
         setSortedList(sorted);
-        console.log(sortedList);
     }
 
     function budgetListSortName() {
         const sorted = [...sortedList].sort((a, b) => a.name.localeCompare(b.name));
         setSortedList(sorted);
     }
+
+    function resetOrder() {
+        setSortedList([...originalList]);
+      }
 
 
     return (
@@ -29,6 +32,7 @@ const BudgetListComponent = ({budgetList}) => {
                     <div className="flex-1/3 space-x-4 text-right ">
                         <button onClick={budgetListSortName} className="bg-black text-white px-6 py-2 rounded-lg hover:bg-blue-100 hover:text-black hover:font-semibold outline-4 outline-black transition hover:scale-105">By name</button>
                         <button onClick={budgetListSortDate} className="bg-black text-white px-6 py-2 rounded-lg hover:bg-blue-100 hover:text-black hover:font-semibold outline-4 outline-black transition hover:scale-105">By date</button>
+                        <button onClick={resetOrder} className="bg-black text-white px-6 py-2 rounded-lg hover:bg-blue-100 hover:text-black hover:font-semibold outline-4 outline-black transition hover:scale-105">Reset</button>
                     </div>
                 </div>
                 
