@@ -24,7 +24,7 @@ const Intro = () => {
                 </div> 
                 <div className='flex-1/4 items-center justify-center align-center flex flex-col'>                       
                     <div>
-                    <button onClick={handleClick}           className="bg-black text-white px-6 py-2 rounded-lg hover:bg-sky-900 transition hover:scale-105"
+                    <button onClick={handleClick}           className="bg-black text-white px-6 py-2 rounded-lg hover:bg-blue-100 hover:text-black hover:font-semibold outline-4 outline-black transition hover:scale-105"
                         >DISCOVER OUR PRODUCTS!</button></div>
 
                 </div>
