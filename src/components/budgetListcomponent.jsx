@@ -4,8 +4,10 @@ const BudgetListComponent = ({budgetList}) => {
 
     const [sortedList, setSortedList] = useState([]);
     const [originalList, setOriginalList] = useState([]);
+    
     useEffect(() => {
         setSortedList([...budgetList]);
+        setOriginalList([...budgetList]);
       }, [budgetList]);
 
     
