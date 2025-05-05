@@ -13,11 +13,11 @@ const Budgetcomponent = ({ onTotalBudgetChange, setBudgetList, selectedServices 
 
     const newErrors = {};
     const lettersOnly = /^[A-Za-zÀ-ÿ\s]+$/;
-    const phonePattern = /^\+?[1-9][0-9]{7,14}$/;
+    const phonePattern = /^\+?\d{1,3}[\s-]?(\(\d{3}\)|\d{3})[\s-]?\d{3}[\s-]?\d{4}$/;
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     if (!name.trim().match(lettersOnly) || name.trim().length < 3) {
-      newErrors.name = "Name not correct. Minimum 3 letters please.";
+      newErrors.name = "Name not correct. Minimum 3 letters please. ";
     }
 
     if (!phone.match(phonePattern) || phone.length < 3) {
