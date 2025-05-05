@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Button from "./button";
 
 const Budgetcomponent = ({ onTotalBudgetChange, setBudgetList, selectedServices }) => {
   const [name, setName] = useState("");
@@ -12,7 +13,7 @@ const Budgetcomponent = ({ onTotalBudgetChange, setBudgetList, selectedServices 
 
     const newErrors = {};
     const lettersOnly = /^[A-Za-zÀ-ÿ\s]+$/;
-    const phonePattern = /^\d+$/;
+    const phonePattern = /^\+?[1-9][0-9]{7,14}$/;
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     if (!name.trim().match(lettersOnly) || name.trim().length < 3) {
@@ -99,12 +100,10 @@ const Budgetcomponent = ({ onTotalBudgetChange, setBudgetList, selectedServices 
             {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
             </label>
 
-            <button
-            type="submit"
-            className="bg-black text-white px-6 py-2 rounded-lg hover:bg-blue-100 hover:text-black hover:font-semibold outline-4 outline-black transition hover:scale-105"
+            <Button
             >
             Save your budget!
-            </button>
+            </Button>
 
             {successMessage && (
             <p className="text-green-600 text-sm mt-2">{successMessage}</p>

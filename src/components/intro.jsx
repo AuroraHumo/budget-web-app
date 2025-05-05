@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router';
+import Button from './button';
 
 const Intro = () => {
 
@@ -9,9 +10,9 @@ const Intro = () => {
     };
 
     return (
-        <div className="flex">
-            <div className="flex-1/2 ">
-                <img src='public\foto.jpg' />
+        <div className="sm:flex">
+            <div className="flex-1/2">
+                <img className="max-w-2/3 " src='public\foto.jpg' />
                 
             </div>
             <div className="flex-1/2 text-center justify-center align-middle items-center flex flex-col "> 
@@ -24,9 +25,8 @@ const Intro = () => {
                 </div> 
                 <div className='flex-1/4 items-center justify-center align-center flex flex-col'>                       
                     <div>
-                    <button onClick={handleClick}           className="bg-black text-white px-6 py-2 rounded-lg hover:bg-blue-100 hover:text-black hover:font-semibold outline-4 outline-black transition hover:scale-105"
-                        >DISCOVER OUR PRODUCTS!</button></div>
-
+                    <Button onClick={handleClick}           
+                        >DISCOVER OUR PRODUCTS!</Button></div>
                 </div>
                 <div className='flex-1/4'>
                 </div>

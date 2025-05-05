@@ -1,19 +1,3 @@
-/* import React from 'react';
-
-const Header = () => {
-    return (
-    <>
-        <header>
-        <h1>Budget App</h1>
-        </header>
-    </>
-        
-    );
-    }
-
-    export default Header; */
-
-    // src/components/header.jsx
 import { Link } from "react-router-dom";
 
 export default function Header() {
@@ -24,7 +8,7 @@ export default function Header() {
         <nav className="flex space-x-6">
           <Link
             to="/"
-            className="text-gray-700 hover:text-fuchsia-100 transition-colors font-bold "
+            className="text-gray-700 hover:text-fuchsia-100 transition-colors font-bold active:font-light "
           >
             Home
           </Link>
