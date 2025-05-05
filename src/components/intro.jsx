@@ -10,19 +10,20 @@ const Intro = () => {
     };
 
     return (
-<div className="flex flex-col justify-center items-center h-screen">
-  <div className="flex-1 flex items-center justify-center">
-    <img className="rotate-180 sm:w-md" src="public/foto.jpg" alt="Intro" />
+<div className="flex flex-col sm:flex-row justify-center items-center h-screen ">
+  <div className="flex-1 flex items-center justify-center z-0">
+    <img className="rotate-150 max-w-2/3 sm:max-w-full " src="public/foto.jpg" alt="Intro" />
   </div>
-
-  <div className="flex-1 flex flex-col items-center justify-center text-3xl font-honk">
+        <div className="flex-1 justify-center items-center z-1">
+  <div className="flex-1 flex flex-col justify-center text-3xl font-honk">
     <h2>UI/UX Design</h2>
     <h2>Mobile App Development</h2>
     <h2>Web Development</h2>
   </div>
 
-  <div className="flex-1 flex items-start justify-center">
+  <div className="flex-1 flex justify-center mt-16">
     <Button onClick={handleClick}>Discover Our Products!</Button>
+  </div>
   </div>
 </div>
 

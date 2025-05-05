@@ -58,8 +58,8 @@ const Budgetcomponent = ({ onTotalBudgetChange, setBudgetList, selectedServices 
 
   return (
     <div className="flex">
-        <div className="flex-1/4"></div>
-        <div className="mt-10 flex-1/2 bg-white p-6 rounded-xl border border-gray-200 shadow">
+        <div className="sm:flex-1/4"></div>
+        <div className="mt-6 flex-1/2 bg-white p-6 rounded-xl border border-gray-200 shadow">
         <form method="post" onSubmit={handleSubmit} className="space-y-4 ">
             <label className="block">
             <input
@@ -100,7 +100,7 @@ const Budgetcomponent = ({ onTotalBudgetChange, setBudgetList, selectedServices 
             {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
             </label>
 
-            <Button
+            <Button type="submit"
             >
             Save your budget!
             </Button>
@@ -110,7 +110,8 @@ const Budgetcomponent = ({ onTotalBudgetChange, setBudgetList, selectedServices 
             )}
         </form>
         </div>
-        <div className="flex-1/4"></div>
+        <div className="sm:flex-1/4">
+        </div>
     </div>
 );
 };
