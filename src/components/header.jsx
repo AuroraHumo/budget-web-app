@@ -2,8 +2,8 @@ import { Link } from "react-router-dom";
 
 export default function Header() {
   return (
-    <header className=" p-2 sticky top-10">
-      <div className="max-w-6xl mx-auto flex items-center justify-between">
+    <header className=" p-4 sticky ">
+      <div className="max-w-2xl mx-auto flex items-center justify-between">
         
         <nav className="flex space-x-6">
           <Link
