@@ -1,30 +1,14 @@
-/* import React from 'react';
-
-const Header = () => {
-    return (
-    <>
-        <header>
-        <h1>Budget App</h1>
-        </header>
-    </>
-        
-    );
-    }
-
-    export default Header; */
-
-    // src/components/header.jsx
 import { Link } from "react-router-dom";
 
 export default function Header() {
   return (
-    <header className=" p-2 sticky top-10">
-      <div className="max-w-6xl mx-auto flex items-center justify-between">
+    <header className="p-6 sticky top-0 sm:top-0 text-left bg-white z-50">
+      <div className="sm:max-w-4xl mx-auto flex ">
         
         <nav className="flex space-x-6">
           <Link
             to="/"
-            className="text-gray-700 hover:text-fuchsia-100 transition-colors font-bold "
+            className="text-gray-700 hover:text-fuchsia-100 transition-colors font-bold active:font-light "
           >
             Home
           </Link>
