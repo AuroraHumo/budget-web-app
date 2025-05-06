@@ -1,42 +1,55 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Honk:SHLN@84.3&family=Sixtyfour+Convergence&display=swap');
+
+.font-honk {
+  font-family: 'Honk', system-ui;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings:
+    "MORF" 15,
+    "SHLN" 84.3;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.sixtyfour-convergence-font {
+  font-family: "Sixtyfour Convergence", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings:
+    "BLED" 0,
+    "SCAN" 0,
+    "XELA" 0,
+    "YELA" 0;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+@import "tailwindcss";
+
+@layer utilities {
+  .bg-oranje {
+    background-color: #e0633c;
   }
-  to {
-    transform: rotate(360deg);
+  .bg-cream {
+    background-color: #eedecb;
+  }
+  .bg-black {
+    background-color: #202020;
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.fade-enter {
+  opacity: 0;
 }
 
-.card {
-  padding: 2em;
+.fade-enter.fade-enter-active {
+  opacity: 1;
+  transition: opacity 300ms ease-in;
 }
 
-.read-the-docs {
-  color: #888;
+.fade-exit {
+  opacity: 1;
+}
+
+.fade-exit.fade-exit-active {
+  opacity: 0;
+  transition: opacity 300ms ease-out;
 }
