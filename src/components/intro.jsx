@@ -1,13 +1,8 @@
 import React from 'react';
-import { useNavigate } from 'react-router';
+import { Link } from 'react-router-dom';
 import Button from './button';
 
 const Intro = () => {
-
-    const navigate = useNavigate();
-    const handleClick = () => {
-        navigate('/home');
-    };
 
     return (
         <div className="flex flex-col sm:flex-row justify-center items-stretch h-screen overflow-hidden">
@@ -21,7 +16,9 @@ const Intro = () => {
                     <h2>Web Development</h2>
                 </div>
                 <div className="flex-1 flex justify-center mt-10 sm:mt-30">
-                    <Button onClick={handleClick}>Discover Our Products!</Button>
+                    <Link to="/home">
+                        <Button type="button">Discover Our Products!</Button>
+                    </Link>
                 </div>
             </div>
         </div>
